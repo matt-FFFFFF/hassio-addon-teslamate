@@ -75,7 +75,7 @@ jobs:
           --label io.hass.arch="${{ matrix.arch }}" \
           --label io.hass.url="https://github.com/matt-FFFFFF/hassio-addon-repository/blob/main/teslamate/README.md" \
           -t $DOCKER_USERNAME/teslamate-${{ matrix.arch }}:$ADDON_VERSION \
-          ./$GITHUB_WORKFLOW
+          ./
       if: github.ref != 'refs/heads/main'
     - name: Buildx build --push (if main)
       run: |
@@ -91,5 +91,5 @@ jobs:
           --label io.hass.arch="${{ matrix.arch }}" \
           --label io.hass.url="https://github.com/matt-FFFFFF/hassio-addon-repository/blob/main/teslamate/README.md" \
           -t $DOCKER_USERNAME/teslamate-${{ matrix.arch }}:$ADDON_VERSION \
-          ./$GITHUB_WORKFLOW
+          ./
       if: github.ref == 'refs/heads/main'
