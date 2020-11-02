@@ -24,7 +24,7 @@ I recommend you only do this to configure TeslaMate and you then remove the exte
 
 Configure a PostgreSQL data source as follows:
 
-![Grafana Postgres data source](https://raw.githubusercontent.com/matt-FFFFFF/hassio-addon-repository/master/teslamate/media/grafana-postgres.png)
+![Grafana Postgres data source](https://raw.githubusercontent.com/matt-FFFFFF/hassio-addon-teslamate/main/media/grafana-postgres.png)
 
 ### Uploading Dashboards
 
