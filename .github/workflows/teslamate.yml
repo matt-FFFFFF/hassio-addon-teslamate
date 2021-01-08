@@ -45,15 +45,21 @@ jobs:
       run: |
         case "${{ matrix.arch }}" in
           "amd64" )
-            echo "PLATFORM=linux/amd64" >> $GITHUB_ENV ;;
-          "i386" )
-            echo "PLATFORM=linux/386" >> $GITHUB_ENV ;;
+            echo "PLATFORM=linux/amd64" >> $GITHUB_ENV
+            echo "ARCH=amd64" >> $GITHUB_ENV
+            ;;
           "aarch64" )
-            echo "PLATFORM=linux/arm64" >> $GITHUB_ENV ;;
+            echo "PLATFORM=linux/arm64" >> $GITHUB_ENV
+            echo "ARCH=aarch64" >> $GITHUB_ENV
+            ;;
           "armhf" )
-            echo "PLATFORM=linux/arm/v7" >> $GITHUB_ENV ;;
+            echo "PLATFORM=linux/arm/v7" >> $GITHUB_ENV
+            echo "ARCH=armhf" >> $GITHUB_ENV
+            ;;
           "armv7" )
-            echo "PLATFORM=linux/arm/v7" >> $GITHUB_ENV ;;
+            echo "PLATFORM=linux/arm/v7" >> $GITHUB_ENV
+            echo "ARCH=arm" >> $GITHUB_ENV
+            ;;
         esac
     - name: Set environment variables from config.json
       run: |
