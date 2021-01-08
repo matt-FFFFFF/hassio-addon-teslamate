@@ -55,5 +55,6 @@
         "mqtt_namespace": "str",
         "timezone": "str"
     },
-    "url": "https://github.com/matt-FFFFFF/hassio-addon-repository/blob/master/teslamate/README.md"
+    "url": "https://github.com/matt-FFFFFF/hassio-addon-repository/blob/master/teslamate/README.md",
+    "image": "mattffffff/teslamate-{arch}"
   }
