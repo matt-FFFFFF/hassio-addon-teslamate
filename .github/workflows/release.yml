@@ -41,7 +41,7 @@ jobs:
         with:
           tag_name: v${{ steps.semver.outputs.semver }}
           release_name: Release v${{ steps.semver.outputs.semver }}
-          body_path: CHANGELOG.md
+          body_path: ${{ github.workspace }}/teslamate/CHANGELOG.md
           draft: false
           prerelease: false
       - name: Checkout repository
