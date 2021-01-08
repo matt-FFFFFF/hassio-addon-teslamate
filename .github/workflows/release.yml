@@ -57,8 +57,10 @@ jobs:
           jq '.version="${{ steps.semver.outputs.semver }}"' < ${{ github.workspace }}/teslamate/config.json > ${{ github.workspace }}/repo/teslamate/config.json
       - name: Add changes to addon repo
         run: |
-          git add .
-          git commit -m 'Update from hassio-addon-teslamate'
-          git push
+          if [ "$(git status -s)" ]; then
+            git add .
+            git commit -m 'Update from hassio-addon-teslamate'
+            git push
+          fi
         working-directory: ${{ github.workspace }}/repo/teslamate
 
