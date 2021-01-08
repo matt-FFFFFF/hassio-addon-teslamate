@@ -6,6 +6,7 @@ FROM teslamate/grafana:${TESLAMATE_TAG} as grafana
 
 FROM teslamate/teslamate:${TESLAMATE_TAG}
 
+ARG ARCH
 ARG BASHIO_VERSION=0.9.0
 ARG S6_OVERLAY_VERSION=1.22.1.0
 
@@ -21,7 +22,7 @@ RUN apk add --no-cache \
         bind-tools \
         nginx \
         \
-    && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-amd64.tar.gz" \
+    && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-${ARCH}.tar.gz" \
         | tar zxvf - -C / \
     && mkdir -p /etc/fix-attrs.d \
     && mkdir -p /etc/services.d \
