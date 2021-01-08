@@ -1,8 +1,7 @@
 # Changelog
 
-## 0.4.0
+## 0.5.0
 
-* Teslamate 1.20.1
-* Run as root <https://github.com/matt-FFFFFF/hassio-addon-repository/issues/8>
+* [Ingress support](https://github.com/matt-FFFFFF/hassio-addon-teslamate/pull/1)! Thanks to [tcm0116](https://github.com/tcm0116)
 
-[Full Changelog](https://github.com/matt-FFFFFF/hassio-addon-repository/blob/master/teslamate/CHANGELOG.md)
+[Full Changelog](https://github.com/matt-FFFFFF/hassio-addon-teslamate/blob/master/teslamate/CHANGELOG-FULL.md)
