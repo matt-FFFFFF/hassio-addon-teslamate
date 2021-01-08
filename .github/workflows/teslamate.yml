@@ -1,4 +1,4 @@
-name: teslamate
+name: Teslamate CI/CD
 
 on:
   push:
@@ -66,7 +66,7 @@ jobs:
         esac
     - name: Update config.json if release
       run: |
-        export RELEASE=$( $GITHUB_REF | cut -d/ -f3 | sed s/v// )
+        export RELEASE=$( echo $GITHUB_REF | cut -d/ -f3 | sed s/v// )
         jq ".version=\"$RELEASE\"" < config.json > config_release.json
         rm config.json && mv config_release.json config.json
       if: ${{ github.event_name == 'release' }}
