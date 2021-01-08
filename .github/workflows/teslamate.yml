@@ -66,8 +66,8 @@ jobs:
         esac
     - name: Update config.json if release
       run: |
-        export RELEASE=$( $GITHUB_REF | sed s/v// )
-        jq ".version=\"$RELEASE\"" < /config.json > config_release.json
+        export RELEASE=$( $GITHUB_REF | cut -d/ -f3 | sed s/v// )
+        jq ".version=\"$RELEASE\"" < config.json > config_release.json
         rm config.json && mv config_release.json config.json
       if: ${{ github.event_name == 'release' }}
     - name: Set environment variables from config.json
