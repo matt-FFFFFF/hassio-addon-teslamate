@@ -6,7 +6,7 @@ on:
         required: true
         default: i
 
-name: Create Release
+name: Create release
 
 jobs:
   build:
