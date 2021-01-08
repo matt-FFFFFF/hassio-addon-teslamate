@@ -7,6 +7,8 @@ on:
     paths:
       - '**'
       - '!**.md'
+  release:
+    types: [published]
 
 env:
   DOCKER_USERNAME: mattffffff
@@ -42,7 +44,7 @@ jobs:
         version: latest
     - name: Available platforms
       run: echo ${{ steps.buildx.outputs.platforms }}
-    - name: Set PLATFORM variable
+    - name: Set PLATFORM & ARCH variables
       run: |
         case "${{ matrix.arch }}" in
           "amd64" )
@@ -62,6 +64,12 @@ jobs:
             echo "ARCH=arm" >> $GITHUB_ENV
             ;;
         esac
+    - name: Update config.json if release
+      run: |
+        export LATEST_RELEASE=$(curl --silent https://api.github.com/repos/$GITHUB_REPOSITORY/releases/latest | jq -r .tag_name | sed s/v// )
+        jq ".version=\"$LATEST_RELEASE\"" < /config.json > config_release.json
+        rm config.json && mv config_release.json config.json
+      if: ${{ github.event_name == 'release' }}
     - name: Set environment variables from config.json
       run: |
         echo "ADDON_VERSION=$(jq -r .version < config.json)" >> $GITHUB_ENV
