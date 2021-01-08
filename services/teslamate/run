@@ -5,7 +5,7 @@ ingress_entry=$(curl -X GET \
                      -H "Content-Type: application/json" \
                      -s http://supervisor/addons/self/info | \
                      jq -r '.data.ingress_entry')
-sed -i "s^url: \[^url: \[path: \"${ingress_entry}\", ^" /opt/app/releases/*/releases.exs
+sed -i "s^url: \[^url: \[path: \"${ingress_entry}\", ^" /opt/app/releases/*/runtime.exs
 
 cd /opt/app
 exec /ha-bootstrap.sh bin/teslamate start
