@@ -10,7 +10,7 @@ name: Create release
 
 jobs:
   build:
-    name: Create Release
+    name: create_release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Teslamate
