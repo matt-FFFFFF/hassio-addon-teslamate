@@ -4,11 +4,15 @@ This addon builds on the excellent work of [Adrian Kumpf](https://github.com/adr
 
 ## DB Connection
 
-If using the Postgres addon from this repo, the database host is ```29b65938-postgres```
+If using the Postgres addon from this repo, the database host is `29b65938-postgres`
+
+## MQTT Configuration
+
+You **must** have a username and password defined for your MQTT user, do not use the HA local login (thanks [quach128](https://github.com/quach128))
 
 ## Grafana Configuration
 
-> I recommend you use the existing Grafana addon from the community addons
+I recommend you use the existing Grafana addon from the community addons
 
 **NEW - Automatic dashboard uploading!**
 
