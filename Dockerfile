@@ -6,6 +6,7 @@ FROM teslamate/grafana:${TESLAMATE_TAG} as grafana
 
 FROM teslamate/teslamate:${TESLAMATE_TAG}
 
+ARG ARCH
 ARG BASHIO_VERSION=0.9.0
 ARG S6_OVERLAY_VERSION=1.22.1.0
 
@@ -19,8 +20,9 @@ RUN apk add --no-cache \
         ca-certificates \
         curl \
         bind-tools \
+        nginx \
         \
-    && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-amd64.tar.gz" \
+    && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-${ARCH}.tar.gz" \
         | tar zxvf - -C / \
     && mkdir -p /etc/fix-attrs.d \
     && mkdir -p /etc/services.d \
@@ -34,10 +36,17 @@ RUN apk add --no-cache \
 COPY --chown=root scripts/*.sh /
 RUN chmod a+x /*.sh
 
+COPY --chown=root services/teslamate/run services/teslamate/finish /etc/services.d/teslamate/
+RUN chmod a+x /etc/services.d/teslamate/*
+
+COPY --chown=root services/nginx/run services/nginx/finish /etc/services.d/nginx/
+RUN chmod a+x /etc/services.d/nginx/*
+
+COPY --chown=root services/nginx/teslamate.conf /etc/nginx/conf.d/
+
 COPY --from=grafana --chown=root /dashboards /dashboards
 COPY --from=grafana --chown=root /dashboards_internal /dashboards
 
 # USER nobody
 
-ENTRYPOINT ["/ha-bootstrap.sh"]
-CMD ["bin/teslamate", "start"]
+ENTRYPOINT ["/init"]

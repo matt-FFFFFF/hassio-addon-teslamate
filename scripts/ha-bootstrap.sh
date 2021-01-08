@@ -18,7 +18,7 @@ export MQTT_NAMESPACE=export MQTT_TLS=$(bashio::config 'mqtt_namespace')
 
 # Other things
 export TZ=$(bashio::config 'timezone')
-export PORT=$(bashio::config 'port')
+export PORT=4000
 
 # Import dashboards
 if [ $(bashio::config 'grafana_import_dashboards') == 'true' ]; then
