@@ -25,7 +25,7 @@ jobs:
         uses: matt-FFFFFF/simple-semver@v0.1.0
         with:
           semver-input: ${{ env.latest_release }}
-          increment: i
+          increment: ${{ github.event.inputs.semverIncrement }}
       - name: Create tag
         run: |
           git config --global user.email "actions.no-reply@github.com"
