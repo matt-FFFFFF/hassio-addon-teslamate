@@ -7,6 +7,12 @@ on:
     paths:
       - '**'
       - '!**.md'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - '**'
+      - '!**.md'
 
 env:
   DOCKER_USERNAME: mattffffff
@@ -74,6 +80,7 @@ jobs:
           --pull \
           --platform=$PLATFORM \
           --build-arg TESLAMATE_TAG=$TESLAMATE_TAG \
+          --build-arg ARCH=$ARCH \
           --label io.hass.type="addon" \
           --label io.hass.name="$ADDON_NAME" \
           --label io.hass.description="$ADDON_DESCRIPTION" \
@@ -90,6 +97,7 @@ jobs:
           --push \
           --platform=$PLATFORM \
           --build-arg TESLAMATE_TAG=$TESLAMATE_TAG \
+          --build-arg ARCH=$ARCH \
           --label io.hass.type="addon" \
           --label io.hass.name="$ADDON_NAME" \
           --label io.hass.description="$ADDON_DESCRIPTION" \
