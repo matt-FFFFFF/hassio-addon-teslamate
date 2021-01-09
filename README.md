@@ -6,7 +6,7 @@ This addon is part of [my Home Assistant addon repo](https://github.com/matt-FFF
 
 ## Installation
 
-1. Add [my repository](https://github.com/matt-FFFFFF/hassio-addon-repository) to Home Assistant. See [installing third party addons](https://www.home-assistant.io/hassio/installing_third_party_addons/) from teh Home Assistant documentation.
+1. Add [my repository](https://github.com/matt-FFFFFF/hassio-addon-repository) to Home Assistant. See [installing third party addons](https://www.home-assistant.io/hassio/installing_third_party_addons/) from the Home Assistant documentation.
 2. Add the `TeslaMate` and the `PostgreSQL` addons from my repo and the `Grafana` addon from the community repo.
 3. Before starting Postgres, [configure](https://github.com/matt-FFFFFF/hassio-addon-postgres/blob/main/README.md) the addon by setting the DB name, username and password. Now you can start it up.
 
