@@ -78,5 +78,5 @@ grafana_folder_name: TeslaMate
 grafana_host: a0d7b954-grafana   # this is correct if you use the community addon
 grafana_port: 3000               # this is correct if you use the community addon
 grafana_user: admin
-grafana_pass: pass
+grafana_pass: mysecretpassword
 ```
