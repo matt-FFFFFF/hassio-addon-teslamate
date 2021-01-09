@@ -37,7 +37,7 @@ mqtt_tls_accept_invalid_certs: true
 
 #### Mosquitto access control list
 
-You must specify an access control list entry for the t3eslamate user, for example:
+You must specify an access control list entry for the teslamate user, for example:
 
 ```text
 user teslamate
