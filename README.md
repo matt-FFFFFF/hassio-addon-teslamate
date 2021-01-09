@@ -28,6 +28,7 @@ database_port: 5432
 You **must** have a username and password defined for your MQTT user, do not use the HA local login (thanks [quach128](https://github.com/quach128)). Below is a sample configuration using the Mosquitto MQTT addon available in the Home Assistant core addon repo:
 
 ```yaml
+disable_mqtt: false
 mqtt_host: core-mosquitto
 mqtt_user: mymqttuser
 mqtt_pass: mymqtttpass
