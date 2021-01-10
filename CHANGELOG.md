@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.2
+
+* Teslamate 1.21.1
+
 ## 0.5.1
 
 * Fix [bug](https://github.com/matt-FFFFFF/hassio-addon-teslamate/pull/12) with ingress paths
