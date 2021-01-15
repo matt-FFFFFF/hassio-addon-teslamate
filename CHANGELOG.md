@@ -1,16 +1,8 @@
 # Changelog
 
-## 0.5.2
+## 0.6.0
 
-* Teslamate 1.21.1
-
-## 0.5.1
-
-* Fix [bug](https://github.com/matt-FFFFFF/hassio-addon-teslamate/pull/12) with ingress paths
-
-## 0.5.0
-
-* [Ingress support](https://github.com/matt-FFFFFF/hassio-addon-teslamate/pull/1)! Thanks to [tcm0116](https://github.com/tcm0116)
-* Teslamate 1.21.0
+* Data import from TeslaFi (see [README](https://github.com/matt-FFFFFF/hassio-addon-repository/blob/master/teslamate/README.md))
+* BREAKING CHANGE - Fix bug with MQTT namespaces, set this to an empty string `''` to avoid changes to MQTT paths.
 
 [Full Changelog](https://github.com/matt-FFFFFF/hassio-addon-teslamate/blob/master/CHANGELOG-FULL.md)

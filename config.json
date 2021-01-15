@@ -27,12 +27,13 @@
         "grafana_port": 3000,
         "grafana_user": "admin",
         "grafana_pass": "pass",
+        "import_dir": "/share/teslamate",
         "mqtt_host": "core-mosquitto",
         "mqtt_user": "user",
         "mqtt_pass": "pass",
         "mqtt_tls": true,
         "mqtt_tls_accept_invalid_certs": false,
-        "mqtt_namespace": "account_0",
+        "mqtt_namespace": "",
         "timezone": "Europe/London"
     },
     "schema": {
@@ -49,6 +50,7 @@
         "grafana_port": "int",
         "grafana_user": "str",
         "grafana_pass": "str",
+        "import_dir": "str",
         "mqtt_host": "str",
         "mqtt_user": "str",
         "mqtt_pass": "str",
@@ -57,6 +59,9 @@
         "mqtt_namespace": "str",
         "timezone": "str"
     },
+    "map": [
+        "share:rw"
+    ],
     "url": "https://github.com/matt-FFFFFF/hassio-addon-repository/blob/master/teslamate/README.md",
     "image": "mattffffff/teslamate-{arch}"
   }
