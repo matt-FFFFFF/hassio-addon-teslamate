@@ -81,3 +81,20 @@ grafana_port: 3000               # this is correct if you use the community addo
 grafana_user: admin
 grafana_pass: mysecretpassword
 ```
+
+## Data Import from TeslaFi
+
+It is now possible to import CSV data from TeslaFi, refer to the [official docs](https://docs.teslamate.org/docs/import/teslafi).
+
+Follow this process:
+
+1. Copy the CSV data to the `/share/teslamate` folder on your Home Assistant instance.
+You can do this using the [Samba](https://github.com/home-assistant/addons/blob/master/samba/DOCS.md) or [SSH](https://github.com/home-assistant/addons/blob/master/ssh/DOCS.md) addons.
+
+2. Make sure the `import_path` configuration setting is set to `/share/teslamate`.
+
+3. Restart the TeslaMate addon and navigate to the web UI, you should be presented with the import screen.
+
+4. Import the data
+
+5. Once imported sucessfully, delete the CSV files to avoid the import screen being presented.
