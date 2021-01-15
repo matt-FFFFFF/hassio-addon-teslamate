@@ -33,7 +33,7 @@
         "mqtt_pass": "pass",
         "mqtt_tls": true,
         "mqtt_tls_accept_invalid_certs": false,
-        "mqtt_namespace": "account_0",
+        "mqtt_namespace": "",
         "timezone": "Europe/London"
     },
     "schema": {
