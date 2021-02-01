@@ -8,7 +8,7 @@ FROM teslamate/teslamate:${TESLAMATE_TAG}
 
 ARG ARCH
 ARG BASHIO_VERSION=0.11.0
-ARG S6_OVERLAY_VERSION=2.1.0.2
+ARG S6_OVERLAY_VERSION=2.2.0.1
 ARG TEMPIO_VERSION=2021.01.0
 
 ENV \
@@ -31,7 +31,6 @@ RUN \
         jq \
         nginx \
         tzdata \
-    && apt-get upgrade \
     && rm -rf /var/lib/apt/lists/* \
         \
     && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-${ARCH}.tar.gz" \
