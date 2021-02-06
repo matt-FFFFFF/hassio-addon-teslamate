@@ -31,17 +31,20 @@ RUN \
         jq \
         nginx \
         tzdata \
-    && rm -rf /var/lib/apt/lists/* \
-        \
-    && curl -L -f -s -o /tmp/s6.tar.gz "https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-${ARCH}.tar.gz" \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN \
+    curl -L -f -s -o /tmp/s6.tar.gz "https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-${ARCH}.tar.gz" \
     && tar zxvf /tmp/s6.tar.gz -C / \
     && mkdir -p /etc/fix-attrs.d \
-    && mkdir -p /etc/services.d \
-    \
-    && curl -L -f -s -o /usr/bin/tempio \
+    && mkdir -p /etc/services.d
+
+RUN \
+    curl -L -f -s -o /usr/bin/tempio \
         "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${ARCH}" \
-    && chmod a+x /usr/bin/tempio \
-    \
+    && chmod a+x /usr/bin/tempio
+
+RUN \
     && mkdir -p /tmp/bashio \
     && curl -L -f -s "https://github.com/hassio-addons/bashio/archive/v${BASHIO_VERSION}.tar.gz" | tar -xzf - --strip 1 -C /tmp/bashio \
     && mv /tmp/bashio/lib /usr/lib/bashio \
