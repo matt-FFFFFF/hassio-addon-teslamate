@@ -33,11 +33,10 @@ RUN \
         tzdata \
     && rm -rf /var/lib/apt/lists/*
 
-RUN \
-    curl -L -f -s -o /tmp/s6.tar.gz "https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-${ARCH}.tar.gz" \
-    && tar zxvf /tmp/s6.tar.gz -C / \
-    && mkdir -p /etc/fix-attrs.d \
-    && mkdir -p /etc/services.d
+RUN wget https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-${ARCH}.tar.gz
+RUN tar zxvf s6-overlay-${ARCH}.tar.gz -C /
+RUN mkdir -p /etc/fix-attrs.d
+RUN mkdir -p /etc/services.d
 
 RUN \
     curl -L -f -s -o /usr/bin/tempio \
