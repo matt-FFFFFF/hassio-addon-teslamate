@@ -31,6 +31,7 @@ RUN \
         jq \
         nginx \
         tzdata \
+        wget \
     && rm -rf /var/lib/apt/lists/*
 
 RUN wget https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-${ARCH}.tar.gz
