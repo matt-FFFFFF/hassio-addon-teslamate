@@ -4,6 +4,7 @@
 
 * Update to work with new Ubuntu upstream images
 * Teslamate 1.21.3
+* New Tesla token API (you will need to sign out and sign back in again)
 
 ## 0.6.0
 
