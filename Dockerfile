@@ -7,28 +7,43 @@ FROM teslamate/grafana:${TESLAMATE_TAG} as grafana
 FROM teslamate/teslamate:${TESLAMATE_TAG}
 
 ARG ARCH
-ARG BASHIO_VERSION=0.9.0
-ARG S6_OVERLAY_VERSION=1.22.1.0
+ARG BASHIO_VERSION=0.11.0
+ARG S6_OVERLAY_VERSION=2.1.0.2
+
+ENV \
+    DEBIAN_FRONTEND="noninteractive" \
+    LANG="C.UTF-8" \
+    S6_BEHAVIOUR_IF_STAGE2_FAILS=2 \
+    S6_CMD_WAIT_FOR_SERVICES=1
 
 USER root
 
-# Install bashio - from https://github.com/home-assistant/docker-base/blob/master/alpine/amd64/Dockerfile
-RUN apk add --no-cache \
+# Commands taken from HA Ubuntu base Dockerfile but switched to wget as curl didn't work using buildx
+# https://github.com/home-assistant/docker-base/blob/master/ubuntu/amd64/Dockerfile
+RUN \
+    set -x \
+    && apt-get update && apt-get install -y --no-install-recommends \
         bash \
-        jq \
-        tzdata \
+        bind9utils \
         ca-certificates \
         curl \
-        bind-tools \
-        nginx \
-        \
-    && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-${ARCH}.tar.gz" \
-        | tar zxvf - -C / \
+        jq \
+        libnginx-mod-http-subs-filter \
+        nginx-light \
+        tzdata \
+        wget \
+    && rm -rf /var/lib/apt/lists/* \
+    \
+    && wget https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-${ARCH}.tar.gz \
+    && tar zxvf s6-overlay-${ARCH}.tar.gz -C / \
+    && rm -f s6-overlay-${ARCH}.tar.gz \
     && mkdir -p /etc/fix-attrs.d \
     && mkdir -p /etc/services.d \
     \
     && mkdir -p /tmp/bashio \
-    && curl -L -s https://github.com/hassio-addons/bashio/archive/v${BASHIO_VERSION}.tar.gz | tar -xzf - --strip 1 -C /tmp/bashio \
+    && wget https://github.com/hassio-addons/bashio/archive/v${BASHIO_VERSION}.tar.gz \
+    && tar xvzf v${BASHIO_VERSION}.tar.gz --strip 1 -C /tmp/bashio \
+    && rm -f v${BASHIO_VERSION}.tar.gz \
     && mv /tmp/bashio/lib /usr/lib/bashio \
     && ln -s /usr/lib/bashio/bashio /usr/bin/bashio \
     && rm -rf /tmp/bashio
@@ -47,6 +62,5 @@ COPY --chown=root services/nginx/teslamate.conf /etc/nginx/conf.d/
 COPY --from=grafana --chown=root /dashboards /dashboards
 COPY --from=grafana --chown=root /dashboards_internal /dashboards
 
-# USER nobody
-
+# S6-Overlay
 ENTRYPOINT ["/init"]
