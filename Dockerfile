@@ -29,24 +29,26 @@ RUN \
         ca-certificates \
         curl \
         jq \
-        nginx \
+        libnginx-mod-http-subs-filter \
+        nginx-light \
         tzdata \
         wget \
     && rm -rf /var/lib/apt/lists/*
 
-RUN wget https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-${ARCH}.tar.gz
-RUN tar zxvf s6-overlay-${ARCH}.tar.gz -C /
-RUN mkdir -p /etc/fix-attrs.d
-RUN mkdir -p /etc/services.d
-
 RUN \
-    curl -L -f -s -o /usr/bin/tempio \
-        "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${ARCH}" \
-    && chmod a+x /usr/bin/tempio
-
-RUN \
-    mkdir -p /tmp/bashio \
-    && curl -L -f -s "https://github.com/hassio-addons/bashio/archive/v${BASHIO_VERSION}.tar.gz" | tar -xzf - --strip 1 -C /tmp/bashio \
+    wget https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-${ARCH}.tar.gz \
+    && tar zxvf s6-overlay-${ARCH}.tar.gz -C / \
+    && rm -f s6-overlay-${ARCH}.tar.gz \
+    && mkdir -p /etc/fix-attrs.d \
+    && mkdir -p /etc/services.d \
+    \
+    && wget -O /usr/bin/tempio https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${ARCH} \
+    && chmod a+x /usr/bin/tempio \
+    \
+    && mkdir -p /tmp/bashio \
+    && wget https://github.com/hassio-addons/bashio/archive/v${BASHIO_VERSION}.tar.gz \
+    && tar xvzf v${BASHIO_VERSION}.tar.gz --strip 1 -C /tmp/bashio \
+    && rm -f v${BASHIO_VERSION}.tar.gz \
     && mv /tmp/bashio/lib /usr/lib/bashio \
     && ln -s /usr/lib/bashio/bashio /usr/bin/bashio \
     && rm -rf /tmp/bashio
