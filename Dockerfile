@@ -42,10 +42,6 @@ RUN \
     && mkdir -p /etc/fix-attrs.d \
     && mkdir -p /etc/services.d \
     \
-    && if [ "${ARCH}" == "arm" ]; then export TEMPIOSUFFIX="v7"; fi \
-    && wget -O /usr/bin/tempio https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${ARCH}${TEMPIOSUFFIX} \
-    && chmod a+x /usr/bin/tempio \
-    \
     && mkdir -p /tmp/bashio \
     && wget https://github.com/hassio-addons/bashio/archive/v${BASHIO_VERSION}.tar.gz \
     && tar xvzf v${BASHIO_VERSION}.tar.gz --strip 1 -C /tmp/bashio \
