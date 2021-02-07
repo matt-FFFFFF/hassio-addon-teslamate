@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.7.0
+
+* Update to work with new Ubuntu upstream images
+* Teslamate 1.21.3
+
 ## 0.6.0
 
 * Data import from TeslaFi (see [README](https://github.com/matt-FFFFFF/hassio-addon-repository/blob/master/teslamate/README.md))
