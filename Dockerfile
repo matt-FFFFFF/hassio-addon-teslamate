@@ -28,8 +28,7 @@ RUN \
         ca-certificates \
         curl \
         jq \
-        libnginx-mod-http-subs-filter \
-        nginx-light \
+        nginx \
         tzdata \
         wget \
     && rm -rf /var/lib/apt/lists/* \
