@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.0
+
+* Teslamate 1.21.5
+
 ## 0.7.0
 
 * Update to work with new Ubuntu upstream images
