@@ -49,7 +49,22 @@ See the [official docs](https://github.com/home-assistant/addons/blob/master/mos
 
 ### Grafana Configuration
 
-I recommend you use the existing Grafana addon from the community addons
+I recommend you use the existing Grafana addon from the community addons, if you do, please enable the following plugins in your yaml configurations, e.g.
+
+```
+plugins:
+  - natel-discrete-panel
+  - pr0ps-trackmap-panel
+  - grafana-piechart-panel
+env_vars:
+  - name: GF_SECURITY_ADMIN_USER
+    value: admin
+  - name: GF_SECURITY_ADMIN_PASSWORD
+    value: <your password>
+ssl: true
+certfile: fullchain.pem
+keyfile: privkey.pem
+```
 
 #### Data Source
 
