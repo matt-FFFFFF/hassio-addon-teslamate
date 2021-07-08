@@ -49,7 +49,14 @@ See the [official docs](https://github.com/home-assistant/addons/blob/master/mos
 
 ### Grafana Configuration
 
-I recommend you use the existing Grafana addon from the community addons
+I recommend you use the existing Grafana addon from the community addons, if you do, please enable the following plugins in your yaml configurations, e.g.
+
+```yaml
+plugins:
+  - natel-discrete-panel
+  - pr0ps-trackmap-panel
+  - grafana-piechart-panel
+```
 
 #### Data Source
 
