@@ -1,7 +1,7 @@
 # Changelog
 
-## 0.13.0
+## 0.14.0
 
-* Teslamate 1.23.7
+* Teslamate 1.24.2
 
 [Full Changelog](https://github.com/matt-FFFFFF/hassio-addon-teslamate/blob/main/CHANGELOG-FULL.md)
