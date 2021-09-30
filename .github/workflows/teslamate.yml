@@ -3,10 +3,11 @@ name: Teslamate CI/CD
 on:
   push:
     branches:
-      - '**'
+      - main
     paths:
       - '**'
       - '!**.md'
+      - '!.github/**'
   release:
     types: [published]
   pull_request:
