@@ -9,6 +9,10 @@ on:
       - '!**.md'
   release:
     types: [published]
+  pull_request:
+    paths: 
+      - '**'
+      - '!**.md'
 
 env:
   DOCKER_USERNAME: mattffffff
