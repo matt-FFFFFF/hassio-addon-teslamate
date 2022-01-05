@@ -70,6 +70,8 @@ Without this step you won't be able to use the TeslaMate dashboards, so this is 
 
 Configure the `Grafana` addon and set the admin username and password - we will need this to upload the dashboards:
 
+> Important! These environment variables are only parsed on the initial set up og Grafana. If you already have th addon configured you'll need to remove it and re-add, setting this configuration for the initial start-up.
+
 ```yaml
 env_vars:
   - name: GF_SECURITY_ADMIN_USER
