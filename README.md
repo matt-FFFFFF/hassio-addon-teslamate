@@ -12,12 +12,13 @@ This addon is part of [my Home Assistant addon repo](https://github.com/matt-FFF
 
 ### DB Connection
 
-If using the Postgres addon from my addon repo, the database host is `29b65938-postgres`. Below is a snippit from the TeslaMate addon configuration, just replace the DB name, username and password and you will be good to go.
+If using the Postgres addon from my addon repo, the database host is `29b65938-postgres`.
+Below is a snippit from the TeslaMate addon configuration, just replace the DB name, username and password on the `Configuration` tab of the addon before starting it and you will be good to go.
 
 ```yaml
-database_user: mydbuser
-database_pass: mydbpass
-database_name: mydbname
+database_user: username
+database_pass: password
+database_name: databasename
 database_host: 29b65938-postgres
 database_ssl: false
 database_port: 5432
