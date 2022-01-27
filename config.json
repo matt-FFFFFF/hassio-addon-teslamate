@@ -14,9 +14,9 @@
     "ports_description": {
     },
     "options": {
-        "database_user": "user",
-        "database_pass": "pass",
-        "database_name": "dbname",
+        "database_user": "username",
+        "database_pass": "password",
+        "database_name": "databasename",
         "database_host": "29b65938-postgres",
         "database_ssl": false,
         "database_port": 5432,
