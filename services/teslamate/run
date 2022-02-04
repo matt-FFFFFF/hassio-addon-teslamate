@@ -5,7 +5,11 @@ ingress_entry=$(curl -X GET \
                      -H "Content-Type: application/json" \
                      -s http://supervisor/addons/self/info | \
                      jq -r '.data.ingress_entry')
+
 sed -i "s^url: \[^url: \[path: \"${ingress_entry}\", ^" /opt/app/releases/*/runtime.exs
+
+# Issue #58 hack to fix app.js
+sed -i "s^/live^${ingress_entry}/live^g" /opt/app/lib/teslamate-*/priv/static/assets/app*.js
 
 cd /opt/app
 exec /ha-bootstrap.sh bin/teslamate start
