@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.17.2
+
+* Teslamate 1.26.1
+* Fix bug in nginx configuraiton (thanks [@faeton](https://github.com/faeton))
+
 ## 0.17.1
 
 * Teslamate 1.26.1
