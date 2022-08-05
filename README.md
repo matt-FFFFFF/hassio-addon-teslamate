@@ -10,6 +10,13 @@ This addon is part of [my Home Assistant addon repo](https://github.com/matt-FFF
 2. Add the `TeslaMate` and the `PostgreSQL` addons from my repo and the `Grafana` addon from the community repo.
 3. Before starting Postgres, [configure](https://github.com/matt-FFFFFF/hassio-addon-postgres/blob/main/README.md) the addon by setting the DB name, username and password. Now you can start it up.
 
+### Tasla API Token Encryption Key
+
+To ensure that the Tesla API tokens are stored securely, an encryption key must be provided via the ENCRYPTION_KEY environment variable.
+This is set in the addon configuration, using the `encryption_key` configuration item.
+
+**A default has been provided but it is highly recommended to change this!**
+
 ### DB Connection
 
 If using the Postgres addon from my addon repo, the database host is `29b65938-postgres`.
