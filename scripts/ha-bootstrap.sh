@@ -28,4 +28,7 @@ if [ $(bashio::config 'grafana_import_dashboards') == 'true' ]; then
     /dashboards.sh restore
 fi
 
+# https://developers.home-assistant.io/blog/2023/04/13/new_limits_for_add_ons/
+ulimit -n 1048576
+
 exec $(/usr/bin/env sh) /entrypoint.sh "$@"
