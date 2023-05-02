@@ -81,9 +81,7 @@ jobs:
         echo "ADDON_NAME=$(jq -r .name < config.json)" >> $GITHUB_ENV
         echo "ADDON_DESCRIPTION=$(jq -r .description < config.json)" >> $GITHUB_ENV
     - name: Login to docker hub
-      run: sudo docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-      env:
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      run: sudo docker login -u $DOCKER_USERNAME -p ${{ secrets.DOCKER_PASSWORD }}
     - name: Buildx build (if not main)
       run: |
         DOCKER_CLI_EXPERIMENTAL=enabled sudo docker buildx build \
