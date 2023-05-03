@@ -39,7 +39,7 @@ jobs:
       run: docker version
     - name: Setup qemu
       id: qemu
-      uses: docker/setup-qemu-action@v1
+      uses: docker/setup-qemu-action@v2
       with:
         platforms: all
     - name: Install buildx
