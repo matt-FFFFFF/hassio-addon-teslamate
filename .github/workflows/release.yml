@@ -22,7 +22,7 @@ jobs:
           echo "latest_release=$(curl --silent https://api.github.com/repos/$GITHUB_REPOSITORY/releases/latest | jq -r .tag_name | sed s/v// )" >> $GITHUB_ENV
       - name: Increment semver
         id: semver
-        uses: matt-FFFFFF/simple-semver@v0.1.0
+        uses: matt-FFFFFF/simple-semver@v0.1.1
         with:
           semver-input: ${{ env.latest_release }}
           increment: ${{ github.event.inputs.semverIncrement }}
