@@ -97,7 +97,7 @@ jobs:
           --label io.hass.url="https://github.com/matt-FFFFFF/hassio-addon-repository/blob/main/teslamate/README.md" \
           -t $DOCKER_USERNAME/teslamate-${{ matrix.arch }}:$ADDON_VERSION \
           ./
-      if: ${{ github.ref != 'refs/heads/main' && github.event_name == 'push' }}
+      if: ${{ github.ref != 'refs/heads/main' }}
     - name: Buildx build --push (if main or release)
       run: |
         DOCKER_CLI_EXPERIMENTAL=enabled sudo docker buildx build \
