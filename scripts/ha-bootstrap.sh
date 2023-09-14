@@ -15,6 +15,7 @@ export MQTT_PASSWORD=$(bashio::config 'mqtt_pass')
 export MQTT_TLS_ACCEPT_INVALID_CERTS=$(bashio::config 'mqtt_tls_accept_invalid_certs')
 export MQTT_TLS=$(bashio::config 'mqtt_tls')
 export MQTT_USERNAME=$(bashio::config 'mqtt_user')
+export DEFAULT_GEOFENCE='not_home'
 
 
 # Other things
