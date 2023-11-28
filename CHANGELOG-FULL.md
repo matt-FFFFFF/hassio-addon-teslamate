@@ -1,10 +1,10 @@
 # Changelog
 
-## 0.22.0
+## 0.21.0
 
 * Teslamate 1.28.2
 
-## 0.21.0
+## 0.20.1
 
 * Teslamate 1.27.4
 
@@ -15,7 +15,7 @@
 ## 0.19.0
 
 * Teslamate 1.27.2
-* Fix out of memory error https://github.com/matt-FFFFFF/hassio-addon-teslamate/issues/92
+* Fix out of memory error <https://github.com/matt-FFFFFF/hassio-addon-teslamate/issues/92>
 
 ## 0.18.1
 
@@ -25,7 +25,7 @@
 
 * Teslamate 1.27.0
 
-> Note: See details on new `encryption_key` config setting: https://github.com/adriankumpf/teslamate/releases/tag/v1.27.0
+> Note: See details on new `encryption_key` config setting: <https://github.com/adriankumpf/teslamate/releases/tag/v1.27.0>
 
 ## 0.17.2
 
