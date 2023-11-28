@@ -59,24 +59,22 @@ See the [official docs](https://github.com/home-assistant/addons/blob/master/mos
 
 I recommend you use the existing Grafana addon from the community addons, if you do, please enable the following plugins in your yaml configurations, e.g.
 
-> Make sure you edit the configuration in YAML mode, not the GUI mode.
-
 ```yaml
 plugins:
   - name: natel-discrete-panel
   - name: natel-plotly-panel
   - name: pr0ps-trackmap-panel
   - name: grafana-piechart-panel
+custom_plugins:
   - name: panodata-map-panel
     url: https://github.com/panodata/panodata-map-panel/releases/download/0.16.0/panodata-map-panel-0.16.0.zip
+    signed: false
 custom_plugins: []
 env_vars:
   - name: GF_SECURITY_ADMIN_USER
     value: <youruser>
   - name: GF_SECURITY_ADMIN_PASSWORD
     value: <yourpass>
-  - name: GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS
-    value: panodata-map-panel
 ssl: true                 # optional if you are using TLS
 certfile: fullchain.pem    # optional if you are using TLS
 keyfile: privkey.pem       # optional if you are using TLS
