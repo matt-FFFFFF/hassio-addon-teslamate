@@ -1,8 +1,13 @@
 # Changelog
 
+## 0.21.1
+
+* Doc fixes
+
 ## 0.21.0
 
 * Teslamate 1.28.2
+* Default geofence feature
 
 ## 0.20.1
 
