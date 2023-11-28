@@ -3,7 +3,12 @@
     "version": "dev",
     "slug": "teslamate",
     "description": "A self-hosted data logger for your Tesla.",
-    "arch": ["armhf", "armv7", "aarch64", "amd64"],
+    "arch": [
+        "armhf",
+        "armv7",
+        "aarch64",
+        "amd64"
+    ],
     "startup": "application",
     "boot": "auto",
     "ingress": true,
@@ -16,6 +21,7 @@
         "database_host": "29b65938-postgres",
         "database_ssl": false,
         "database_port": 5432,
+        "default_geofence": "",
         "disable_mqtt": false,
         "encryption_key": "myencryptionkey",
         "grafana_import_dashboards": false,
@@ -40,6 +46,7 @@
         "database_host": "str",
         "database_ssl": "bool",
         "database_port": "int",
+        "default_geofence": "str",
         "disable_mqtt": "bool",
         "encryption_key": "password",
         "grafana_import_dashboards": "bool",
@@ -62,4 +69,4 @@
     ],
     "url": "https://github.com/matt-FFFFFF/hassio-addon-repository/blob/master/teslamate/README.md",
     "image": "mattffffff/teslamate-{arch}"
-  }
+}

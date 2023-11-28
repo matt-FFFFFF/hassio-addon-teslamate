@@ -22,6 +22,7 @@ export IMPORT_DIR=$(bashio::config 'import_dir')
 export PORT=4000
 export TZ=$(bashio::config 'timezone')
 export ENCRYPTION_KEY=$(bashio::config 'encryption_key')
+export DEFAULT_GEOFENCE=$(bashio::config 'default_geofence')
 
 # Import dashboards
 if [ $(bashio::config 'grafana_import_dashboards') == 'true' ]; then
