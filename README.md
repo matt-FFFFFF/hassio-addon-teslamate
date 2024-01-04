@@ -1,5 +1,7 @@
 # TeslaMate Addon for Home Assistant
 
+🔔 Note this project is looking for a new maintainer: https://github.com/matt-FFFFFF/hassio-addon-teslamate/issues/124
+
 This addon builds on the excellent work of [Adrian Kumpf](https://github.com/adriankumpf/teslamate). See his repo for information regarding the TeslaMate application.
 
 This addon is part of [my Home Assistant addon repo](https://github.com/matt-FFFFFF/hassio-addon-repository) - see link for instructions on how to add to Home Assistant.
