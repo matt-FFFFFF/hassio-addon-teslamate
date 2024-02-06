@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.22.0
+
+* Teslamate 1.28.3
+
 ## 0.21.1
 
 * Doc fixes
