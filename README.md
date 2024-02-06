@@ -63,14 +63,14 @@ I recommend you use the existing Grafana addon from the community addons, if you
 
 ```yaml
 plugins:
-  - name: natel-discrete-panel
-  - name: natel-plotly-panel
-  - name: pr0ps-trackmap-panel
-  - name: grafana-piechart-panel
+  - natel-discrete-panel
+  - natel-plotly-panel
+  - pr0ps-trackmap-panel
+  - grafana-piechart-panel
 custom_plugins:
   - name: panodata-map-panel
     url: https://github.com/panodata/panodata-map-panel/releases/download/0.16.0/panodata-map-panel-0.16.0.zip
-    signed: false
+    unsigned: true
 custom_plugins: []
 env_vars:
   - name: GF_SECURITY_ADMIN_USER
