@@ -12,6 +12,7 @@
     "startup": "application",
     "boot": "auto",
     "ingress": true,
+    "init": false,
     "panel_icon": "mdi:car-connected",
     "panel_title": "TeslaMate",
     "options": {
